@@ -1,4 +1,4 @@
-function [ output_args ] = main( filename )
+function [ ] = main( filename )
 
     info = audioinfo(filename);
 
@@ -31,7 +31,7 @@ function [ output_args ] = main( filename )
     title('Waveform')
     
     %% Crude approximation of autocorrelation
-
+    disp('Method 1')
     [ bpm, r] = bpmCalc_AutoCorr(y, Fs, bpmRange);
     
     subplot(3,1,2)
@@ -42,7 +42,7 @@ function [ output_args ] = main( filename )
     xlabel('Bpm')
     
     %% Correlation to Sinusoid
-
+    disp('Method 2')
     [ bpm, r ] = bpmCalc_SinCorr(y, Fs, bpmRange);
     
     subplot(3,1,3)
